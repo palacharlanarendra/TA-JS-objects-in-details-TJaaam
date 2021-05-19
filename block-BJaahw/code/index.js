@@ -18,6 +18,16 @@ function createUser(name,age){
 let personOne = createUser("narendra",28);
 let personTwo = createUser("babu",22);
 // 4. Change the code inside `createUser` in such a way that the methods `sayHello` doesn't have to be in all object. Use the prototypal nature. (Hint Object.create())
+let createMethods = {
+    sayHello: function(){
+        alert(`Welcome ${this.name}`);
+    }
+}
+function CreateUser(name,age){
+    let obj = Object.create(createMethods)
+    this.name = name;
+    this.age = age;
+}
 
 // 5. Convert the `createUser` function into Pseudoclassical pattern of object creation. Use `F.prototype` to store the methods. `F.prototype` means storing the methods in prototype property of the function.
 function CreateUser(name,age){
@@ -30,11 +40,24 @@ CreateUser.prototype = {
     }
 }
 // 6. Use `new` to create two new objects with the data of two different person and re-assign the value of `personOne` and `personTwo`.
-
+let personOne = new CreateUser("narendra",28);
+let personTwo = new CreateUser("babu",22);
 // 7. Try calling `personOne.sayHello()` and `personTwo.sayHello()`. Check if you get the required output.
-
+personOne.sayHello()//alert
+personTwo.sayHello()//alert
 // 8. Convert the `createUser` function into `User` class.
-
+class User{
+    constructor(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    sayHello(){
+        alert(`Welcome ${this.name}`);
+    }
+}
 // 9. Check by creating two instance of the class using data of two different persons and re-assign the value of `personOne` and `personTwo`
-
+personOne = new User("narendra",28);
+personTwo = new User("babu",22);
 // 10. Try calling `personOne.sayHello()` and `personTwo.sayHello()`. Check if you get the required output.
+personOne.sayHello();//alert
+personTwo.sayHello();//alert
