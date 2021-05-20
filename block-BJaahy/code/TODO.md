@@ -4,24 +4,109 @@
 ```js
 class Square{
     constructor(side){
-        this.side = side,
-        set width(value){
-            this.width = side;
-        }
+        this.width = side;
+        this.height = side;
     }
 }
 
 ```
 - Add a method name `description` that will alert a message saying `The square is ${width} x ${height}`
+```js
+class Square{
+    constructor(side){
+        this.width = side;
+        this.height = side;
+    }
+    description(){
+        return `The square is ${this.width} x ${this.height}`
+    }
+}
 
+```
 - Create a method inside the class named `calcArea` that will return the area of the square.
+```js
+class Square{
+    constructor(side){
+        this.width = side;
+        this.height = side;
+    }
+    description(){
+        return `The square is ${this.width} x ${this.height}`
+    }
+    area(){
+        return this.width * this.height;
+    }
+}
 
+```
 - Create a `area` getter method using which we can get the area of the square.
+```js
+class Square{
+    constructor(side){
+        this.width = side;
+        this.height = side;
+    }
+    description(){
+        return `The square is ${this.width} x ${this.height}`
+    }
+    get area(){
+        return this.width * this.height;
+    }
+}
 
+```
 - Create a `area` setter method that will accept the area of the square. Based on the value of area it will set the value of `width` and `height`. If the passed value is not the area of the square alert say `Not a valid input`
+```js
+class Square{
+    constructor(side){
+        this.width = side;
+        this.height = side;
+    }
+    description(){
+        return `The square is ${this.width} x ${this.height}`
+    }
+    get area(){
+        return this.width * this.height;
+    }
+    set area(value){
+        let side = Math.sqrt(value)
+        this.width = side;
+        this.height = side;
+    }
+}
 
+```
 - Create a static method named `isEqual` which accepts two `square` object with `width` and `height` property. If the area of both square is same it will return `true` or `false`.
+```js
+class Square{
+    constructor(side){
+        this.width = side;
+        this.height = side;
+        this.numberOfTimes = 0;
+    }
+    description(){
+        return `The square is ${this.width} x ${this.height}`
+    }
+    get area(){
+        this.numberOfTimes++;
+        if(this.numberOfTimes>=4){
+            alert("maximum limit reached")
+        }else{
+            return this.width * this.height;
+        }
+    }
+    set area(value){
+        let side = Math.sqrt(value)
+        this.width = side;
+        this.height = side;
+    }
+    static isEqual(a,b){
+        return (a.width*a.height) === (b.width*b.height)
+    }
+    
+}
 
+```
 - Create another property named `numberOfTimes` that will hold the value of number of times the area property is accessed from the object. The values will initialize to `0`. The area property can't be accessed more than 4 times. If it crosses 4 times alert message `Upper Limit Reached`
 
 - Create two instance of the `Square` class
