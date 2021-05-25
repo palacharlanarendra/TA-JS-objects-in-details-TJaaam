@@ -17,7 +17,8 @@ CreateAnimal.prototype = {
 }
 
 
-function CreateDog(name,color){
+function CreateDog(name,color,location,numberOfLegs){
+    CreateAnimal.call(this,location,numberOfLegs);
     this.name = name;
     this.color = color;
 }
@@ -47,7 +48,8 @@ let dog1 = new CreateDog("bunny","black");
 
 
 
-function CreateCat(name,colorOfEyes){
+function CreateCat(name,colorOfEyes,location,numberOfLegs){
+    CreateAnimal.call(this,location,numberOfLegs);
     this.name = name;
     this.changeColorOfEyes = colorOfEyes;
 }
@@ -76,7 +78,7 @@ let cat1 = new CreateCat("sunny","white");
 //class pattern
 
 
-class CreateAnimal{
+class Animal{
     constructor (location,numberOfLegs){
         this.location = location;
         this.numberOfLegs = numberOfLegs;
@@ -90,13 +92,13 @@ class CreateAnimal{
     summary(){
         return `I live in ${this.location} and I have ${this.numberOfLegs}`;
     }
-
 }
 
 
 
-class CreateDog{
-    constructor (name,color){
+class Dog extends Animal{
+    constructor (name,color,location,numberOfLegs){
+        super(location,numberOfLegs);
         this.name = name;
         this.color = color;
     }
@@ -113,21 +115,16 @@ class CreateDog{
         return `I am ${this.name} and I am of ${this.color} color. I can also bark`;
     }
 }
-
-
-
-Object.setPrototypeOf(CreateDog.prototype,CreateAnimal.prototype);
-
-let animal1 = new CreateAnimal("hyderabad",4);
-let dog1 = new CreateDog("bunny","black");
+let dog1 = new CreateDog("bunny","black","hyd",6);
 
 
 
 
 
 
-class CreateCat{
-    constructor(name,colorOfEyes){
+class Cat extends Animal{
+    constructor(name,colorOfEyes,location,numberOfLegs){
+        super(location,numberOfLegs)
         this.name = name;
         this.changeColorOfEyes = colorOfEyes;
     }
@@ -148,5 +145,5 @@ class CreateCat{
     
 
 
-let animal1 = new CreateAnimal("hyderabad",4);
-let cat1 = new CreateCat("sunny","white");
+
+let cat1 = new Cat("sunny","white","hyderabad",4);
