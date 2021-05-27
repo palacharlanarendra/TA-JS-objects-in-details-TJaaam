@@ -42,7 +42,7 @@ class Book{
         paraTwo.innerText = this.author;
 
         let paraThree = document.createElement("p");
-        paraTwo.innerText = this.isbn;
+        paraThree.innerText = this.isbn;
 
         let span = document.createElement("span");
         span.innerText = "❌";
@@ -67,7 +67,7 @@ form.addEventListener("submit",(event)=>{
 
     myBookList.add(title,author,isbn);
 
-    title.value = "";
-    author.value = "";
-    isbn = "";
+    document.querySelector("#title").value = "";
+    document.querySelector("#author").value = "";
+    document.querySelector("#isbn").value = "";
 });
