@@ -43,3 +43,34 @@ METHOD:
   This will create the ui of the whole app.
 - updateScore
   This method will update the score.
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+    <div class="container flex">
+        <article class="article">
+            <div class="flex-box heading">
+                <p>Quiz App</p>
+                <p>Score:<span class="scoreRoot">0</span></p>
+            </div>
+            
+            <div class=""></div>
+                <ul class="quiz"></ul>
+                <button class="prevBtn">PREVIOUS</button>
+                <button class="nextBtn">NEXT</button>
+            </div>
+        </article>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

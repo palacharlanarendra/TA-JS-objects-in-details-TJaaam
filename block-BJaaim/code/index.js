@@ -1,6 +1,7 @@
 let checkBtn = document.querySelector(".btn");
 let nextBtn = document.querySelector(".nextBtn");
 let prevBtn = document.querySelector(".prevBtn");
+let correctCount =  0;
 
 class Quiz{
     constructor(root,list = [],activeIndex = 0,score=0){
@@ -25,8 +26,16 @@ class Quiz{
             console.log("entered");
             let extra =  document.createElement("p");
             extra.innerText = "correct Answer";
+            extra.style.color = "green";
+            
+            correctCount++;
+            let totalCorrect = document.querySelector(".totalCorrect");
+            totalCorrect.innerText = correctCount;
+    
             let score =  document.createElement("p");
-            score.innerText = this.score;
+            score.innerText = `Score : ${this.score}`;
+            
+            
             this.root.append(ui,extra,score);
         }else{
             this.root.append(ui);
@@ -39,7 +48,7 @@ class Quiz{
         this.root.append(extra);      
     }
     updateScore(){
-        return this.score+=1
+        return this.score+=1;
     }
     
 }
@@ -84,7 +93,7 @@ class Question{
         subRoot.addEventListener("click",(event)=>{
             myQuiz.createUI(event.target.dataset.options)
         });
- 
+        
         subRoot.append(optionOne,optionTwo,optionThree,optionFour);
         li.append(qTitle,subRoot);
         return li;
@@ -100,6 +109,9 @@ let myQuiz = new Quiz(document.querySelector(".quiz"),[question1,question2]);
 
 myQuiz.createUI()
 
+
+let totalQ = document.querySelector(".totalQ");
+    totalQ.innerText = `${myQuiz.questions.length}`;
     
 nextBtn.addEventListener("click",()=>{
     myQuiz.nextQuestion();
