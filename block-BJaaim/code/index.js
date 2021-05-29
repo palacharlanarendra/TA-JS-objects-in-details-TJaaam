@@ -101,11 +101,13 @@ class Question{
 }
 
 
-let question1 = new Question("Who is the father of the nation ?",["Gandhi","narendra","babu","sai"],0);
-let question2 = new Question("Who killed Gandhi",["Himself","godse","babu","sai"],1);
+let question1 = new Question("Chennakeshab Temple is located in ?",["Konark","Puri","Belur","Chhatarpur"],2);
+let question2 = new Question("Which among the following is the brightest planet?",["Mercury","Venus","mars","Neptune"],1);
+let question3 = new Question("Which among the following is related to Temple of Diana?",["Iraq","Egypt","Rome","Greek"],2);
+let question4 = new Question("The event of Russian Revolution had taken place in …",["1917","1937","1897","1889"],0);
+let question5 = new Question(" Grand National Assembly is the Parliament of ",["Turkey","china","France","Korea"],0);
 
-
-let myQuiz = new Quiz(document.querySelector(".quiz"),[question1,question2]);
+let myQuiz = new Quiz(document.querySelector(".quiz"),[question1,question2,question3,question4,question5]);
 
 myQuiz.createUI()
 
