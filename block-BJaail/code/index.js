@@ -33,15 +33,21 @@ class Book{
         this.id =  `id-${Date.now()}`;
     }
     createUI(){
-        let li = document.createElement("li");
+        // <tr>
+        //         <td>Alfreds Futterkiste</td>
+        //         <td>Maria Anders</td>
+        //         <td>Germany</td>
+        // </tr>
+        let li = document.createElement("tr");
 
-        let paraOne = document.createElement("p");
+        let paraOne = document.createElement("td");
         paraOne.innerText = this.title;
+        
 
-        let paraTwo = document.createElement("p");
+        let paraTwo = document.createElement("td");
         paraTwo.innerText = this.author;
 
-        let paraThree = document.createElement("p");
+        let paraThree = document.createElement("td");
         paraThree.innerText = this.isbn;
 
         let span = document.createElement("span");
